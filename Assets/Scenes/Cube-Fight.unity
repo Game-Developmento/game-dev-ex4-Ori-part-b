@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 1027850188}
   - component: {fileID: 1027850190}
   - component: {fileID: 1027850189}
+  - component: {fileID: 1027850191}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -600,8 +601,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027850185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.21, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 11.35, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1444294522}
@@ -752,6 +753,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1027850191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027850185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0fd28b0ea9bb7449d82595d2c37d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAction:
+    m_Name: Spawn
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 6a2a5be9-370a-4cca-a7d4-cd6366131ed2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5aafd5c4-3445-4658-8749-4440410d4171
+      m_Path: <Keyboard>/slash
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Spawn
+      m_Flags: 0
+    m_Flags: 0
+  prefabToSpawn: {fileID: 5042774858638475581, guid: 2e667b17b7788d846b58ee88fe79d321, type: 3}
+  velocityOfSpawnedObject: {x: 0, y: -15, z: 0}
 --- !u!1 &1035245505
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +797,7 @@ GameObject:
   - component: {fileID: 1035245508}
   - component: {fileID: 1035245510}
   - component: {fileID: 1035245509}
+  - component: {fileID: 1035245511}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -780,8 +813,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035245505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -13.72, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: -12.28, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1444294522}
@@ -932,6 +965,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1035245511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035245505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0fd28b0ea9bb7449d82595d2c37d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAction:
+    m_Name: Spawn
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: 61278fa2-7645-48d9-a84f-152f285497d8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2b5f952b-e39b-486f-bf4f-7f6a8c5a2387
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Spawn
+      m_Flags: 0
+    m_Flags: 0
+  prefabToSpawn: {fileID: 5042774858638475581, guid: 2e667b17b7788d846b58ee88fe79d321, type: 3}
+  velocityOfSpawnedObject: {x: 0, y: 15, z: 0}
 --- !u!1 &1099093026
 GameObject:
   m_ObjectHideFlags: 0
