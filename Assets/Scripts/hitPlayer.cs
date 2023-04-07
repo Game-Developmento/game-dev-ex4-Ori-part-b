@@ -10,13 +10,19 @@ public class hitPlayer : MonoBehaviour
 
     private Renderer playerRenderer;
     private float ignoreTimer;
-
     private bool isCoroutineFinished = true;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (ignoreTimer <= 0 && other.CompareTag(triggerTag))
         {
             Debug.Log("hit!");
+            playerLives otherPlayerLive = other.GetComponent<playerLives>();
+
+            if (otherPlayerLive != null && !otherPlayerLive.getImmune())
+            {
+                otherPlayerLive.decrementLife();
+            }
+            otherPlayerLive.activeImmunity(duration);
             ignoreTimer = 1.0f;
             playerRenderer = other.GetComponent<Renderer>();
             StartCoroutine(playerHit(playerRenderer));
@@ -30,6 +36,7 @@ public class hitPlayer : MonoBehaviour
     {
         isCoroutineFinished = false;
         float startTime = Time.time;
+
         while (Time.time - startTime < duration)
         {
             float visibilityValue = Mathf.PingPong(Time.time * winkSpeed, 1);
