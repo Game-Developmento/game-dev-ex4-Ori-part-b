@@ -5,26 +5,34 @@ using UnityEngine;
 public class hitPlayer : MonoBehaviour
 {
     [SerializeField] string triggerTag;
-    [SerializeField] float visibilityDuration = 2.0f;
-    [SerializeField] float winkSpeed = 10.0f;
+    [SerializeField] float duration = 2.5f;
+    [SerializeField] float winkSpeed = 5.0f;
 
-    private float visibilityTimer = 0.0f;
-
-    private bool isWinking = false;
-
-    private Renderer otherRenderer;
+    private Renderer playerRenderer;
     private float ignoreTimer;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (visibilityTimer <= 0.0f && ignoreTimer <= 0 && other.CompareTag(triggerTag))
+        if (ignoreTimer <= 0 && other.CompareTag(triggerTag))
         {
             Debug.Log("hit!");
-            otherRenderer = other.GetComponent<Renderer>();
             ignoreTimer = 1.0f;
-            visibilityTimer = visibilityDuration;
-            isWinking = true;
+            playerRenderer = other.GetComponent<Renderer>();
+            this.StartCoroutine(playerHit(playerRenderer));
+        }
+    }
+
+    IEnumerator playerHit(Renderer playerRenderer)
+    {
+        float startTime = Time.time;
+        while (Time.time - startTime < duration)
+        {
+            float visibilityValue = Mathf.PingPong(Time.time * winkSpeed, 1);
+            bool isVisible = visibilityValue > 0.5f;
+            playerRenderer.enabled = isVisible;
+            yield return null;
 
         }
+        playerRenderer.enabled = true;
     }
     private void Start()
     {
@@ -35,18 +43,6 @@ public class hitPlayer : MonoBehaviour
     void Update()
     {
         ignoreTimer -= Time.deltaTime;
-        if (isWinking)
-        {
-            float visibilityAmount = Mathf.PingPong(Time.time * winkSpeed, 1);
-
-            otherRenderer.enabled = visibilityAmount > 0.5f;
-            if (visibilityTimer <= 0)
-            {
-                isWinking = false;
-                otherRenderer.enabled = true;
-            }
-            visibilityTimer -= Time.deltaTime;
-        }
 
     }
 }
