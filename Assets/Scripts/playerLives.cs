@@ -29,37 +29,10 @@ public class playerLives : MonoBehaviour
         heart1.gameObject.SetActive(true);
         heart2.gameObject.SetActive(true);
         heart3.gameObject.SetActive(true);
-        // gameOver.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
 
     }
 
-    private void handleFirstCase()
-    {
-        heart1.gameObject.SetActive(true);
-        heart2.gameObject.SetActive(true);
-        heart3.gameObject.SetActive(true);
-    }
-
-    private void handleSecondCase()
-    {
-        heart1.gameObject.SetActive(true);
-        heart2.gameObject.SetActive(true);
-        heart3.gameObject.SetActive(false);
-    }
-    private void handleThirdCase()
-    {
-        heart1.gameObject.SetActive(true);
-        heart2.gameObject.SetActive(false);
-        heart3.gameObject.SetActive(false);
-
-    }
-    private void handleLastCase()
-    {
-        heart1.gameObject.SetActive(false);
-        heart2.gameObject.SetActive(false);
-        heart3.gameObject.SetActive(false);
-        // gameOver.gameObject.SetActive(true);
-    }
     IEnumerator getImmunity(float duration)
     {
         this.isImmune = true;
@@ -72,17 +45,15 @@ public class playerLives : MonoBehaviour
     {
         switch (health)
         {
-            case 3:
-                handleFirstCase();
-                break;
             case 2:
-                handleSecondCase();
+                heart3.gameObject.SetActive(false);
                 break;
             case 1:
-                handleThirdCase();
+                heart2.gameObject.SetActive(false);
                 break;
             case 0:
-                handleLastCase();
+                heart1.gameObject.SetActive(false);
+                gameOver.gameObject.SetActive(true);
                 Time.timeScale = 0;
                 break;
 
