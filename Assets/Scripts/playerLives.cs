@@ -6,7 +6,6 @@ public class playerLives : MonoBehaviour
 {
     public GameObject heart1, heart2, heart3, gameOver;
     private int health;
-
     private bool isImmune = false;
 
 
@@ -39,8 +38,6 @@ public class playerLives : MonoBehaviour
         yield return new WaitForSeconds(duration);
         this.isImmune = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
         switch (health)
