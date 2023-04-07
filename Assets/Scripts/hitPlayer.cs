@@ -10,6 +10,8 @@ public class hitPlayer : MonoBehaviour
 
     private Renderer playerRenderer;
     private float ignoreTimer;
+
+    private bool isCoroutineFinished = true;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (ignoreTimer <= 0 && other.CompareTag(triggerTag))
@@ -17,12 +19,16 @@ public class hitPlayer : MonoBehaviour
             Debug.Log("hit!");
             ignoreTimer = 1.0f;
             playerRenderer = other.GetComponent<Renderer>();
-            this.StartCoroutine(playerHit(playerRenderer));
+            StartCoroutine(playerHit(playerRenderer));
+            gameObject.GetComponent<Renderer>().enabled = false;
         }
+
+
     }
 
     IEnumerator playerHit(Renderer playerRenderer)
     {
+        isCoroutineFinished = false;
         float startTime = Time.time;
         while (Time.time - startTime < duration)
         {
@@ -30,9 +36,11 @@ public class hitPlayer : MonoBehaviour
             bool isVisible = visibilityValue > 0.5f;
             playerRenderer.enabled = isVisible;
             yield return null;
-
         }
         playerRenderer.enabled = true;
+        isCoroutineFinished = true;
+        Destroy(gameObject);
+
     }
     private void Start()
     {
@@ -43,6 +51,14 @@ public class hitPlayer : MonoBehaviour
     void Update()
     {
         ignoreTimer -= Time.deltaTime;
+
+    }
+    private void OnBecameInvisible()
+    {
+        if (isCoroutineFinished)
+        {
+            Destroy(gameObject);
+        }
 
     }
 }
