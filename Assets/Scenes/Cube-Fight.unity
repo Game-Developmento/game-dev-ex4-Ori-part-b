@@ -784,6 +784,7 @@ MonoBehaviour:
     m_Flags: 0
   prefabToSpawn: {fileID: 5042774858638475581, guid: 2e667b17b7788d846b58ee88fe79d321, type: 3}
   velocityOfSpawnedObject: {x: 0, y: -15, z: 0}
+  spawnDelay: 1
 --- !u!1 &1035245505
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +997,7 @@ MonoBehaviour:
     m_Flags: 0
   prefabToSpawn: {fileID: 5042774858638475581, guid: 2e667b17b7788d846b58ee88fe79d321, type: 3}
   velocityOfSpawnedObject: {x: 0, y: 15, z: 0}
+  spawnDelay: 1
 --- !u!1 &1099093026
 GameObject:
   m_ObjectHideFlags: 0

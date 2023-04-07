@@ -9,6 +9,10 @@ public class ClickSpawner : MonoBehaviour
     [SerializeField] protected GameObject prefabToSpawn;
     [SerializeField] protected Vector3 velocityOfSpawnedObject;
 
+    [SerializeField] protected float spawnDelay;
+
+    private bool canSpawn = true;
+
 
     private void OnEnable()
     {
@@ -21,16 +25,28 @@ public class ClickSpawner : MonoBehaviour
 
     protected virtual GameObject spawnObject()
     {
-        Vector3 positionOfSpawnedObject = transform.position;
-        Quaternion rotationOfSpawnedObject = Quaternion.identity; // no rotation
-        GameObject newObject = Instantiate(prefabToSpawn, positionOfSpawnedObject, rotationOfSpawnedObject);
-        Mover newObjectMover = newObject.GetComponent<Mover>();
-        if (newObjectMover)
+        if (canSpawn)
         {
-            newObjectMover.SetVelocity(velocityOfSpawnedObject);
-        }
+            this.canSpawn = false;
+            StartCoroutine(activeDelay());
+            Vector3 positionOfSpawnedObject = transform.position;
+            Quaternion rotationOfSpawnedObject = Quaternion.identity; // no rotation
+            GameObject newObject = Instantiate(prefabToSpawn, positionOfSpawnedObject, rotationOfSpawnedObject);
+            Mover newObjectMover = newObject.GetComponent<Mover>();
+            if (newObjectMover)
+            {
+                newObjectMover.SetVelocity(velocityOfSpawnedObject);
+            }
 
-        return newObject;
+            return newObject;
+        }
+        return null;
+    }
+
+    IEnumerator activeDelay()
+    {
+        yield return new WaitForSeconds(spawnDelay);
+        this.canSpawn = true;
     }
 
     // Update is called once per frame
