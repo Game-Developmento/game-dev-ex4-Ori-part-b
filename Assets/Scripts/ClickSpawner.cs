@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class ClickSpawner : MonoBehaviour
 {
-    [SerializeField] protected InputAction spawnAction = new InputAction(type: InputActionType.Button);
-    [SerializeField] protected GameObject prefabToSpawn;
-    [SerializeField] protected Vector3 velocityOfSpawnedObject;
+    [SerializeField] public InputAction spawnAction = new InputAction(type: InputActionType.Button);
+    [SerializeField] public GameObject prefabToSpawn;
+    [SerializeField] public Vector3 velocityOfSpawnedObject;
 
-    [SerializeField] protected float spawnDelay;
+    [SerializeField] public float spawnDelay;
 
     private bool canSpawn = true;
 
@@ -23,7 +23,7 @@ public class ClickSpawner : MonoBehaviour
         spawnAction.Disable();
     }
 
-    protected virtual GameObject spawnObject()
+    protected GameObject spawnObject()
     {
         if (canSpawn)
         {

@@ -51,7 +51,9 @@ public class playerLives : MonoBehaviour
             case 0:
                 heart1.gameObject.SetActive(false);
                 gameOver.gameObject.SetActive(true);
-                Time.timeScale = 0;
+                this.gameObject.SetActive(false);
+                ClickSpawner[] clickSpawners = FindObjectsOfType<ClickSpawner>();
+                System.Array.ForEach(clickSpawners, spawner => spawner.enabled = false);
                 break;
 
         }
