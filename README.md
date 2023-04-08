@@ -3,7 +3,7 @@
 This is a two-player game where each player controls a cube and shoots ducks at each other. The players are positioned at opposite ends of the screen, and they can move left or right within their boundaries. Each player has three lives, and they win by eliminating their opponent's lives.
 
 ## How to Play And Rules
-1. Go to https://itch.io/ and play the game in your web browser.
+1. Go to https://orihoward.itch.io/duck-shooting-game and play the game in your web browser.
 2. Player 1 moves left or right using the A and D keys and shoots with the spacebar.
 3. Player 2 moves left or right using the arrow keys and shoots with the / key.
 4. Each player can shoot only once every 0.5 seconds.
