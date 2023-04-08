@@ -6,7 +6,7 @@ This is a two-player game where each player controls a cube and shoots ducks at 
 1. Go to https://itch.io/ and play the game in your web browser.
 2. Player 1 moves left or right using the A and D keys and shoots with the spacebar.
 3. Player 2 moves left or right using the arrow keys and shoots with the / key.
-4. Each player can shoot only once every second.
+4. Each player can shoot only once every 0.5 seconds.
 5. If a duck hits a player, they are immune for 2.5 seconds, during which time they cannot be hit again.
 6. If a player loses all their lives, the game is over and the other player wins.
 
