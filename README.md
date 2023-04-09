@@ -16,4 +16,21 @@ This is a two-player game where each player controls a cube and shoots ducks at 
 - The players have boundaries that limit how far they can move left or right.
 - The game is intended for two players, so make sure you have a friend to play with!
 
-That's it! Have fun playing the game and let us know if you have any feedback or suggestions.
+## Scripts
+
+### BlockMovement
+This component ensures that the player cannot move beyond the boundaries in the game. The boundaries limit how far the player can move left or right.
+
+### ClickSpawner
+This component can spawn objects in the game, mainly for the ducks that are being shot by the player. It controls the spawning of ducks, including the delay between each duck spawn to prevent players from spamming shots.
+
+### hitPlayer
+This component is responsible for all the actions that occur when a player is hit, such as decrementing their life (each player has 3), giving them immunity for 2.5 seconds after a hit, and destroying the hitting object (which is the duck in this case because the player is shooting ducks).
+
+### PlayerLives
+This component is responsible for managing the lives of each player. Each player starts with 3 lives, and when they lose all their lives, the game is over.
+
+### gameManager
+This component has one function that reloads the scene. This function is attached to a button that says "restart game".
+
+**That's it! Have fun playing the game!**
